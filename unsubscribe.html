@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Unsubscribe | Financial Guide for Engineers</title>
+
+    <meta
+      name="description"
+      content="Unsubscribe from the Financial Guide for Engineers email updates."
+    />
+
+    <meta name="theme-color" content="#f5f2eb" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <main class="page-shell">
+      <section class="page-card" aria-labelledby="unsubscribe-title">
+        <p class="eyebrow">Manage email preferences</p>
+
+        <h1 id="unsubscribe-title">Unsubscribe</h1>
+
+        <p>
+          Enter the email address you used to sign up and we'll remove you from
+          future newsletter emails.
+        </p>
+
+        <form id="unsubscribeForm" class="signup-form" novalidate>
+          <label for="unsubscribeEmail" class="field-label">
+            Email address
+          </label>
+
+          <div class="input-row">
+            <input
+              id="unsubscribeEmail"
+              name="unsubscribeEmail"
+              type="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+
+            <button id="unsubscribeBtn" type="submit">Unsubscribe</button>
+          </div>
+
+          <p
+            id="unsubscribeMessage"
+            class="form-message"
+            aria-live="polite"
+          ></p>
+        </form>
+
+        <p class="unsubscribe-note">
+          If you change your mind, you can always subscribe again in the future.
+        </p>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

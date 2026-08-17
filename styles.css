@@ -1,0 +1,312 @@
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --border: #d8d5ce;
+  --text: #20242a;
+  --muted: #626a73;
+  --accent: #15191e;
+  --success: #176b3a;
+  --error: #a23b3b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 72px 0 90px;
+}
+
+
+/* HERO */
+
+.hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 0 72px;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 760px;
+  font-size: clamp(2.6rem, 6vw, 4.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+  font-weight: 700;
+}
+
+.subhead {
+  max-width: 700px;
+  margin-top: 24px;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+
+/* SIGNUP */
+
+.signup-form {
+  max-width: 760px;
+  margin-top: 34px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+
+input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  padding: 0 15px;
+  border: 1px solid #bdb9b0;
+  border-radius: 5px;
+  background: #ffffff;
+  color: var(--text);
+}
+
+input[type="email"]::placeholder {
+  color: #8b9198;
+}
+
+input[type="email"]:focus {
+  outline: 2px solid rgba(21, 25, 30, 0.15);
+  outline-offset: 1px;
+  border-color: #777d84;
+}
+
+button[type="submit"] {
+  height: 52px;
+  padding: 0 24px;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+button[type="submit"]:hover {
+  background: #30353b;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.form-message {
+  min-height: 20px;
+  margin-top: 10px;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.form-message.success {
+  color: var(--success);
+}
+
+.form-message.error {
+  color: var(--error);
+}
+
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 720px;
+  margin-top: 15px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.consent-row input {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0;
+  accent-color: var(--accent);
+}
+
+.privacy-note {
+  margin-top: 12px;
+  font-size: 0.78rem;
+  color: #7b828a;
+}
+
+
+/* GUIDE CONTENT */
+
+.questions {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 68px;
+}
+
+.section-heading {
+  margin-bottom: 34px;
+}
+
+.section-heading h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+
+/* TOPICS */
+
+.questions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.question-card {
+  padding: 25px 26px;
+  background: transparent;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.question-card h3 {
+  font-size: 1rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.question-card p {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+
+/* TABLET */
+
+@media (max-width: 760px) {
+  .page-shell {
+    width: min(100% - 28px, 900px);
+    padding: 48px 0 60px;
+  }
+
+  .hero {
+    padding-bottom: 52px;
+  }
+
+  .questions {
+    padding-top: 52px;
+  }
+
+  .questions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .page-shell {
+    width: calc(100% - 28px);
+    padding: 32px 0 48px;
+  }
+
+  .hero {
+    padding-top: 8px;
+    padding-bottom: 44px;
+  }
+
+  .eyebrow {
+    margin-bottom: 14px;
+    font-size: 0.68rem;
+  }
+
+  h1 {
+    font-size: clamp(2.35rem, 12vw, 3.5rem);
+    line-height: 1;
+  }
+
+  .subhead {
+    margin-top: 18px;
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .signup-form {
+    margin-top: 28px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  input[type="email"],
+  button[type="submit"] {
+    width: 100%;
+    height: 52px;
+  }
+
+  .consent-row {
+    font-size: 0.76rem;
+  }
+
+  .questions {
+    padding-top: 44px;
+  }
+
+  .section-heading {
+    margin-bottom: 26px;
+  }
+
+  .question-card {
+    padding: 22px 20px;
+  }
+}
