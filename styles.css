@@ -288,11 +288,15 @@ button[type="submit"]:disabled {
     flex-direction: column;
   }
 
-  input[type="email"],
-  button[type="submit"] {
-    width: 100%;
-    height: 52px;
-  }
+  input[type="email"] {
+  width: 100%;
+  height: 58px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  height: 54px;
+}
 
   .consent-row {
     font-size: 0.76rem;
@@ -309,4 +313,38 @@ button[type="submit"]:disabled {
   .question-card {
     padding: 22px 20px;
   }
+}
+
+.site-footer {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+label[for="unsubscribeEmailConfirm"] {
+  display: block;
+  margin-top: 14px;
 }

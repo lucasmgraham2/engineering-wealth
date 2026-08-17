@@ -5,6 +5,7 @@ const consentCheckbox = document.getElementById("consentCheckbox");
 const formMessage = document.getElementById("formMessage");
 const unsubscribeForm = document.getElementById("unsubscribeForm");
 const unsubscribeEmailInput = document.getElementById("unsubscribeEmail");
+const unsubscribeEmailConfirmInput = document.getElementById('unsubscribeEmailConfirm');
 const unsubscribeBtn = document.getElementById("unsubscribeBtn");
 const unsubscribeMessage = document.getElementById("unsubscribeMessage");
 
@@ -100,19 +101,27 @@ if (form) {
 }
 
 if (unsubscribeForm) {
-  unsubscribeForm.addEventListener("submit", async (event) => {
+  unsubscribeForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const email = unsubscribeEmailInput.value.trim().toLowerCase();
+    const confirmEmail = unsubscribeEmailConfirmInput.value.trim().toLowerCase();
 
-    // Validate email
     if (!email) {
       setMessage(
         unsubscribeMessage,
-        "Enter the email address you want to unsubscribe.",
-        "error",
+        'Enter your email address.',
+        'error'
       );
+      return;
+    }
 
+    if (!confirmEmail) {
+      setMessage(
+        unsubscribeMessage,
+        'Please confirm your email address.',
+        'error'
+      );
       return;
     }
 
@@ -121,26 +130,44 @@ if (unsubscribeForm) {
     if (!emailRegex.test(email)) {
       setMessage(
         unsubscribeMessage,
-        "Please enter a valid email address.",
-        "error",
+        'Please enter a valid email address.',
+        'error'
       );
+      return;
+    }
 
+    if (!emailRegex.test(confirmEmail)) {
+      setMessage(
+        unsubscribeMessage,
+        'Please enter a valid email address.',
+        'error'
+      );
+      return;
+    }
+
+    if (email !== confirmEmail) {
+      setMessage(
+        unsubscribeMessage,
+        'The email addresses do not match.',
+        'error'
+      );
       return;
     }
 
     unsubscribeBtn.disabled = true;
 
-    setMessage(unsubscribeMessage, "Unsubscribing...");
+    setMessage(
+      unsubscribeMessage,
+      'Unsubscribing...'
+    );
 
     try {
       const response = await fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-
+        method: 'POST',
         body: JSON.stringify({
-          action: "unsubscribe",
-
-          email: email,
-        }),
+          action: 'unsubscribe',
+          email: email
+        })
       });
 
       const result = await response.json();
@@ -148,26 +175,29 @@ if (unsubscribeForm) {
       if (result.success) {
         setMessage(
           unsubscribeMessage,
-          result.message || "You have been successfully unsubscribed.",
-          "success",
+          result.message || 'You have been successfully unsubscribed.',
+          'success'
         );
 
         unsubscribeForm.reset();
+
       } else {
         setMessage(
           unsubscribeMessage,
-          result.error || "We could not unsubscribe this email address.",
-          "error",
+          result.error || 'Unable to unsubscribe.',
+          'error'
         );
       }
+
     } catch (error) {
-      console.error("Unsubscribe error:", error);
+      console.error('Unsubscribe error:', error);
 
       setMessage(
         unsubscribeMessage,
-        "Something went wrong. Please try again later.",
-        "error",
+        'Something went wrong. Please try again later.',
+        'error'
       );
+
     } finally {
       unsubscribeBtn.disabled = false;
     }

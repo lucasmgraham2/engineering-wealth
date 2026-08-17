@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./banknotes.png" />
 
     <title>Unsubscribe | Financial Guide for Engineers</title>
 
@@ -15,7 +15,6 @@
     <meta name="theme-color" content="#f5f2eb" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
@@ -34,8 +33,7 @@
         <h1 id="unsubscribe-title">Unsubscribe</h1>
 
         <p>
-          Enter the email address you used to sign up and we'll remove you from
-          future newsletter emails.
+          Enter your email address twice to unsubscribe from future newsletter emails.
         </p>
 
         <form id="unsubscribeForm" class="signup-form" novalidate>
@@ -43,18 +41,31 @@
             Email address
           </label>
 
-          <div class="input-row">
-            <input
-              id="unsubscribeEmail"
-              name="unsubscribeEmail"
-              type="email"
-              placeholder="you@example.com"
-              autocomplete="email"
-              required
-            />
+          <input
+            id="unsubscribeEmail"
+            name="unsubscribeEmail"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
 
-            <button id="unsubscribeBtn" type="submit">Unsubscribe</button>
-          </div>
+          <label for="unsubscribeEmailConfirm" class="field-label">
+            Confirm email address
+          </label>
+
+          <input
+            id="unsubscribeEmailConfirm"
+            name="unsubscribeEmailConfirm"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+
+          <button id="unsubscribeBtn" type="submit">
+            Unsubscribe
+          </button>
 
           <p
             id="unsubscribeMessage"
@@ -68,6 +79,10 @@
         </p>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <a href="https://www.flaticon.com/free-icons/cash" title="cash icons">Cash icons created by Uniconlabs - Flaticon</a>
+    </footer>
 
     <script src="./script.js"></script>
   </body>
