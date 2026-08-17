@@ -12,7 +12,7 @@ const unsubscribeMessage = document.getElementById("unsubscribeMessage");
 // Your Google Apps Script Web App URL.
 // Replace this with the URL Google gives you after deployment.
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzOLOnPtMt7znvfoZnFnD8GhTL3yLrAehNY90pEvrboZbd3sOsB4jFEFKVI38pRA5_I/exec";
+  "https://script.google.com/macros/s/AKfycbxPxk7_4MRLDPG9phJEF-GEYFq3W6JCmtZ8YxqgwShTHJoi6P5J8lBUgNuvDIQ16e6J/exec";
 
 function setMessage(target, text, state = "") {
   if (!target) {
